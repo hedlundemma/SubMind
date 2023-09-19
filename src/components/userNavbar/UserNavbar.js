@@ -15,6 +15,9 @@ const HeaderSecton = styled.section`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  img {
+    gap: 10px;
+  }
 `;
 const Logo = styled.img`
   height: 36px;
@@ -33,7 +36,14 @@ export default function UserNavbar() {
           <Logo src="logo.svg"></Logo>
           <Name>Submind</Name>
         </HeaderSecton>
-        <HeaderSecton></HeaderSecton>
+        <HeaderSecton>
+          <Link href="">
+            <img src="Bell.svg" alt="Icon" />
+          </Link>
+          <Link href="">
+            <img src="Settings.svg" alt="Icon" />
+          </Link>
+        </HeaderSecton>
       </Header>
     </>
   );
