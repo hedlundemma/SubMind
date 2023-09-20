@@ -47,7 +47,6 @@ const LowerDiv = styled.div`
 
 export default function Footer() {
   return (
-    <>
       <FooterSection>
         <LogoDiv>
           <Logo src="logo.svg"></Logo>
@@ -67,6 +66,5 @@ export default function Footer() {
           <p>© Submind 2023.</p>
         </LowerDiv>
       </FooterSection>
-    </>
   );
 }

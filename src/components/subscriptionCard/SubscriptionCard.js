@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/navigation";
 
 const Card = styled.button`
   width: 100%;
@@ -24,7 +25,14 @@ const MainText = styled.p`
 `;
 
 const SubscriptionCard = (props) => {
+  const router = useRouter();
   const handleButtonClick = () => {
+    // router.push({pathname: `${props.id}`, query: {id: props.id}});
+    // router.push({
+    //   pathname: `${props.id}`,
+    //   query: { subscriptionId: props.id },
+    // })
+    router.push(`${props.id}`)
     console.log("clicked");
   };
 
