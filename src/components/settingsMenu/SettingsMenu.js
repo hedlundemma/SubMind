@@ -12,9 +12,9 @@ const MenuContainer = styled.div`
   width: 390px;
   height: 94%;
   background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 100;
   padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   display: ${(props) => (props.$isOpen ? "block" : "none")};
 `;
 

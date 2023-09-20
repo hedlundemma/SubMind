@@ -66,7 +66,10 @@ export default function UserNavbar() {
         isOpen={isSettingsMenuOpen}
         toggleMenu={toggleSettingsMenu}
       />
-      <NotificationMenu isOpen={isNotificationMenuOpen} />
+      <NotificationMenu
+        isOpen={isNotificationMenuOpen}
+        toggleMenu={toggleNotificationMenu}
+      />
     </>
   );
 }
