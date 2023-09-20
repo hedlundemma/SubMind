@@ -15,9 +15,13 @@ const HeaderSecton = styled.section`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  img {
-    gap: 10px;
-  }
+`;
+const LogoSection = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 `;
 const Logo = styled.img`
   height: 36px;
@@ -33,17 +37,12 @@ export default function UserNavbar() {
     <>
       <Header>
         <HeaderSecton>
-          <Logo src="logo.svg"></Logo>
-          <Name>Submind</Name>
+          <LogoSection href="/start">
+            <Logo src="logo.svg"></Logo>
+            <Name>Submind</Name>
+          </LogoSection>
         </HeaderSecton>
-        <HeaderSecton>
-          <Link href="">
-            <img src="Bell.svg" alt="Icon" />
-          </Link>
-          <Link href="">
-            <img src="Settings.svg" alt="Icon" />
-          </Link>
-        </HeaderSecton>
+        <HeaderSecton></HeaderSecton>
       </Header>
     </>
   );

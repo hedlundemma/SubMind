@@ -37,6 +37,7 @@ const Section = styled.section`
     background-color: #ededed;
     box-sizing: border-box;
     padding-left: 16px;
+    color: black;
   }
   form button {
     box-sizing: border-box;

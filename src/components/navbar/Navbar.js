@@ -23,11 +23,13 @@ const Logo = styled.img`
 const Name = styled.h1`
   font-size: 24px;
   font-weight: 600;
+  color: black;
 `;
 
 const LoginBtn = styled(Link)`
   font-size: 12px;
   padding: 8px;
+  color: black;
 `;
 const RegisterBtn = styled(Link)`
   font-size: 12px;

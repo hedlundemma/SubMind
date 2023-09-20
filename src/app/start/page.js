@@ -10,7 +10,7 @@ import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
 
 const Main = styled.div`
   background-color: white;
-  height: 850px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
