@@ -1,6 +1,8 @@
 "use client";
-import Link from "next/link";
+import React, { useState } from "react";
 import styled from "styled-components";
+import SettingsMenu from "../settingsMenu/SettingsMenu";
+import NotificationMenu from "../notificationMenu/NotificationMenu";
 const Header = styled.header`
   background-color: white;
   height: 100px;
@@ -33,6 +35,16 @@ const Name = styled.h1`
 `;
 
 export default function UserNavbar() {
+  const [isNotificationMenuOpen, setNotificationMenuOpen] = useState(false);
+  const [isSettingsMenuOpen, setSettingsMenuOpen] = useState(false);
+
+  const toggleNotificationMenu = () => {
+    setNotificationMenuOpen(!isNotificationMenuOpen);
+  };
+
+  const toggleSettingsMenu = () => {
+    setSettingsMenuOpen(!isSettingsMenuOpen);
+  };
   return (
     <>
       <Header>
@@ -42,8 +54,14 @@ export default function UserNavbar() {
             <Name>Submind</Name>
           </LogoSection>
         </HeaderSecton>
-        <HeaderSecton></HeaderSecton>
+        <HeaderSecton>
+          <img src="Bell.svg" alt="Icon" onClick={toggleNotificationMenu} />
+
+          <img src="Settings.svg" alt="Icon" onClick={toggleSettingsMenu} />
+        </HeaderSecton>
       </Header>
+      <SettingsMenu isOpen={isSettingsMenuOpen} />
+      <NotificationMenu isOpen={isNotificationMenuOpen} />
     </>
   );
 }
