@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import styled from "styled-components";
 import SettingsMenu from "../settingsMenu/SettingsMenu";
 import NotificationMenu from "../notificationMenu/NotificationMenu";
@@ -45,6 +46,7 @@ export default function UserNavbar() {
   const toggleSettingsMenu = () => {
     setSettingsMenuOpen(!isSettingsMenuOpen);
   };
+
   return (
     <>
       <Header>
@@ -60,7 +62,10 @@ export default function UserNavbar() {
           <img src="Settings.svg" alt="Icon" onClick={toggleSettingsMenu} />
         </HeaderSecton>
       </Header>
-      <SettingsMenu isOpen={isSettingsMenuOpen} />
+      <SettingsMenu
+        isOpen={isSettingsMenuOpen}
+        toggleMenu={toggleSettingsMenu}
+      />
       <NotificationMenu isOpen={isNotificationMenuOpen} />
     </>
   );
