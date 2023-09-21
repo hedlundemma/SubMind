@@ -46,6 +46,7 @@ const Section = styled.div`
     text-align: center;
     border-radius: 10px;
     height: 40px;
+    margin-top: 12px;
   }
 `;
 
@@ -63,16 +64,20 @@ const Heading = styled.h1`
 `;
 
 const DeleteAccountButton = styled.button`
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 0;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  height: 40px;
   background-color: white;
-  border: 2px solid red;
+  border: 1px solid red;
   border-radius: 16px;
-  padding: 8px 16px;
-  align-self: center;
   cursor: pointer;
-  margin-top: 16px;
+  margin-top: 20px;
   font-size: 20px;
-  margin: 16px auto;
-  display: block;
+  font-weight: 400;
 `;
 
 const CrossButton = styled.button`
@@ -86,6 +91,18 @@ const CrossButton = styled.button`
 const SettingsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const LogoutButton = styled.button`
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  height: 40px;
+  margin-top: 12px;
 `;
 
 const SettingsMenu = ({ isOpen, toggleMenu }) => {
@@ -117,6 +134,18 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
       }
     } catch (error) {
       console.error("Error:", error.message);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        throw error;
+      }
+      router.push("/login");
+    } catch (error) {
+      console.error("Error logging out:", error.message);
     }
   };
 
@@ -189,6 +218,9 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
         <DeleteAccountButton onClick={deleteAccount}>
           Ta bort kontot
         </DeleteAccountButton>
+        <div>
+          <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
+        </div>
         <p>
           Notera: Din prenumeration är fortfarande aktiv på tjänsten även om du
           tar bort den i den här appen!

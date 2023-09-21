@@ -50,7 +50,6 @@ const CardsContainer = styled.section`
   align-items: center;
 `;
 
-
 const ButtonDiv = styled.div`
   display: flex;
   align-items: center;
@@ -73,18 +72,6 @@ export default function Start() {
       }
     };
   }, [router]);
-
-  const handleLogout = async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) {
-        throw error;
-      }
-      router.push("/login");
-    } catch (error) {
-      console.error("Error logging out:", error.message);
-    }
-  };
 
   useEffect(() => {
     const fetchSubscriptions = async () => {
@@ -130,8 +117,7 @@ export default function Start() {
     ));
   }
 
-  if(subscriptions)
-  {
+  if (subscriptions) {
     return (
       <Main>
         <UserNavbar></UserNavbar>
@@ -146,16 +132,11 @@ export default function Start() {
         <Section>
           <CardsContainer>{cardsComponent}</CardsContainer>
           <ButtonDiv></ButtonDiv>
-          <button onClick={handleLogout}>Logout</button>
         </Section>
         <Footer></Footer>
       </Main>
     );
-  }
-  else
-  {
-    return(
-      <p>Loading...</p>
-    )
+  } else {
+    return <p>Loading...</p>;
   }
 }

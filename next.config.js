@@ -3,8 +3,14 @@ require("dotenv").config();
 const nextConfig = {};
 module.exports = nextConfig;
 
-// next.config.js
-module.exports = {
+const withPWA = require("next-pwa")({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === "development",
+});
+
+module.exports = withPWA({
   async rewrites() {
     return [
       {
@@ -14,7 +20,8 @@ module.exports = {
     ];
   },
   reactStrictMode: true,
+
   env: {
     SUPABASE_KEY: process.env.SUPABASE_KEY,
   },
-};
+});
