@@ -44,7 +44,7 @@ export default function Navbar() {
     <>
       <Header>
         <HeaderSecton>
-          <Logo src="logo.svg"></Logo>
+          <Logo src="/logo/logo.svg"></Logo>
           <Name>Submind</Name>
         </HeaderSecton>
         <HeaderSecton>

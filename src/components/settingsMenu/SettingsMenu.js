@@ -14,7 +14,6 @@ const MenuContainer = styled.div`
   background-color: #fff;
   z-index: 100;
   padding: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   display: ${(props) => (props.$isOpen ? "block" : "none")};
 `;
 
@@ -63,11 +62,6 @@ const Heading = styled.h1`
   margin-top: 24px;
 `;
 
-const PasswordContainer = styled.div`
-  p {
-    text-align: center;
-  }
-`;
 const DeleteAccountButton = styled.button`
   background-color: white;
   border: 2px solid red;
@@ -160,7 +154,7 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
         <SettingsContainer>
           <Heading> Inställningar</Heading>
           <CrossButton onClick={closeMenu}>
-            <img src="./cross.svg" alt="a cross icon" />
+            <img src="/logo/cross.svg" alt="a cross icon" />
           </CrossButton>
         </SettingsContainer>
         <Container>
@@ -190,16 +184,15 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
             />
           </div>
           <button type="submit">Spara kontouppgifter</button>
-          <PasswordContainer>
-            <p>
-              Glömt ditt lösenord? <Link href="">Klicka här</Link>
-            </p>
-          </PasswordContainer>
         </form>
 
         <DeleteAccountButton onClick={deleteAccount}>
           Ta bort kontot
         </DeleteAccountButton>
+        <p>
+          Notera: Din prenumeration är fortfarande aktiv på tjänsten även om du
+          tar bort den i den här appen!
+        </p>
       </Section>
     </MenuContainer>
   );

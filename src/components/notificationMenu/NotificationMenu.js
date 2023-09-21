@@ -1,14 +1,13 @@
 " use client";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const MenuContainer = styled.div`
   position: absolute;
   top: 80px;
   background-color: white;
-  width: 390px;
+  width: 385px;
   height: 94%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 100;
   padding: 10px;
   display: ${(props) => (props.$isOpen ? "block" : "none")};
@@ -43,13 +42,20 @@ const NotificationMenu = ({ isOpen, toggleMenu }) => {
   const closeMenu = () => {
     toggleMenu();
   };
+
+  const [isSwitchOn, setIsSwitchOn] = useState(false);
+
+  const handleSwitchChange = (newState) => {
+    setIsSwitchOn(newState);
+    // You can perform any actions here based on the new state.
+  };
   return (
     <MenuContainer $isOpen={isOpen}>
       <Section>
         <NotificationContainer>
           <Heading> Notifikationer</Heading>
           <CrossButton onClick={closeMenu}>
-            <img src="./cross.svg" alt="a cross icon" />
+            <img src="/logo/cross.svg" alt="a cross icon" />
           </CrossButton>
         </NotificationContainer>
       </Section>

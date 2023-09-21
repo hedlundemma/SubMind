@@ -47,24 +47,24 @@ const LowerDiv = styled.div`
 
 export default function Footer() {
   return (
-      <FooterSection>
-        <LogoDiv>
-          <Logo src="logo.svg"></Logo>
-          <Name>Submind</Name>
-        </LogoDiv>
-        <FooterDiv>
-          <div>
-            <p>Kontakta oss</p>
-            <p>FAQ</p>
-          </div>
-          <div>
-            <Link href="./userterms">Användarvillkor</Link>
-            <p>Integritetspolicy</p>
-          </div>
-        </FooterDiv>
-        <LowerDiv>
-          <p>© Submind 2023.</p>
-        </LowerDiv>
-      </FooterSection>
+    <FooterSection>
+      <LogoDiv>
+        <Logo src="/logo/logo.svg"></Logo>
+        <Name>Submind</Name>
+      </LogoDiv>
+      <FooterDiv>
+        <div>
+          <p>Kontakta oss</p>
+          <p>FAQ</p>
+        </div>
+        <div>
+          <Link href="./userterms">Användarvillkor</Link>
+          <p>Integritetspolicy</p>
+        </div>
+      </FooterDiv>
+      <LowerDiv>
+        <p>© Submind 2023.</p>
+      </LowerDiv>
+    </FooterSection>
   );
 }

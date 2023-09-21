@@ -52,14 +52,22 @@ export default function UserNavbar() {
       <Header>
         <HeaderSecton>
           <LogoSection href="/start">
-            <Logo src="logo.svg"></Logo>
+            <Logo src="/logo/logo.svg"></Logo>
             <Name>Submind</Name>
           </LogoSection>
         </HeaderSecton>
         <HeaderSecton>
-          <img src="Bell.svg" alt="Icon" onClick={toggleNotificationMenu} />
+          <img
+            src="/logo/Bell.svg"
+            alt="Icon"
+            onClick={toggleNotificationMenu}
+          />
 
-          <img src="Settings.svg" alt="Icon" onClick={toggleSettingsMenu} />
+          <img
+            src="/logo/Settings.svg"
+            alt="Icon"
+            onClick={toggleSettingsMenu}
+          />
         </HeaderSecton>
       </Header>
       <SettingsMenu

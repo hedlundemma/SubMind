@@ -40,7 +40,7 @@ export default function userTerms() {
       <Navbar></Navbar>
       <Section>
         <Link href="/register">
-          <Logo src="Left-arrow.svg"></Logo>Gå tillbaka
+          <Logo src="/logo/Left-arrow.svg"></Logo>Gå tillbaka
         </Link>
         <ContainerDiv>
           <Heading>Användarvillkor</Heading>

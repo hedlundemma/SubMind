@@ -20,7 +20,7 @@ const SubscriptionButton = ({ href, text }) => {
   return (
     <Link href={href}>
       <Button className="subscription-button">
-        <img src="/plus.svg" alt="Plus" /> {text}
+        <img src="logo//plus.svg" alt="Plus" /> {text}
       </Button>
     </Link>
   );

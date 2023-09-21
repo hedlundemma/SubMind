@@ -1,21 +1,20 @@
-require('dotenv').config();
+require("dotenv").config();
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-module.exports = nextConfig
+const nextConfig = {};
+module.exports = nextConfig;
 
 // next.config.js
 module.exports = {
   async rewrites() {
     return [
       {
-        source: '/subscriptionDetails/:slug',
-        destination: '/subscriptionDetails/:slug',
+        source: "/subscriptionDetails/:slug",
+        destination: "/subscriptionDetails/:slug",
       },
     ];
   },
-    reactStrictMode: true,
-    env: {
-      SUPABASE_KEY: process.env.SUPABASE_KEY,
-    }
-  };
-  
+  reactStrictMode: true,
+  env: {
+    SUPABASE_KEY: process.env.SUPABASE_KEY,
+  },
+};
