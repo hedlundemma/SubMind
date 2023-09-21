@@ -3,6 +3,7 @@ import { supabase } from "../../../supabase";
 import { useRouter } from "next/navigation";
 import styled from "styled-components";
 import { Days_One, Stardos_Stencil } from "next/font/google";
+import CompanySearch from "@/components/companySearch/companySearch";
 
 const Section = styled.section`
   display: flex;
@@ -122,6 +123,7 @@ const StreamingForm = () => {
 
   return (
     <Section>
+      <CompanySearch></CompanySearch>
       <form onSubmit={handleSubmit}>
         <label>
           Stremingtjänst

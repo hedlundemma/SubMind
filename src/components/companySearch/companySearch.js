@@ -1,29 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const CompanySearch = () => {
-  const hardcodedCompanies = [
-    'Netflix',
-    'DisneyPlus',
-    'Spotify'
-  ];
+  const hardcodedCompanies = ["Netflix", "DisneyPlus", "Spotify"];
 
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
   const [filteredCompanies, setFilteredCompanies] = useState([]);
 
   const handleInputChange = (e) => {
     const inputText = e.target.value;
     setSearchText(inputText);
 
-    // Filter companies based on user input
-    const filtered = hardcodedCompanies.filter((company) =>
-      company.toLowerCase().includes(inputText.toLowerCase())
-    );
-    setFilteredCompanies(filtered);
+    if (inputText === '') {
+      setFilteredCompanies([]);
+    } else {
+      const filtered = hardcodedCompanies.filter((company) =>
+        company.toLowerCase().includes(inputText.toLowerCase())
+      );
+      setFilteredCompanies(filtered);
+    }
   };
 
   const handleSelectCompany = (selectedCompany) => {
     setSearchText(selectedCompany);
-    // Handle the selected company (e.g., store it in state or use it for subscription creation)
+    //handle selected company
   };
 
   return (
