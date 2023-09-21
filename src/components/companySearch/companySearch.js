@@ -23,11 +23,9 @@ const CompanySearch = () => {
     const inputText = e.target.value;
     setSearchText(inputText);
 
-    // Clear the filtered list if nothing is typed
     if (inputText === '') {
       setFilteredCompanies([]);
     } else {
-      // Filter companies based on user input
       const filtered = hardcodedCompanies.filter((company) =>
         company.displayName.toLowerCase().includes(inputText.toLowerCase())
       );
@@ -37,7 +35,7 @@ const CompanySearch = () => {
 
   const handleSelectCompany = (selectedCompany) => {
     setSearchText(selectedCompany.displayName);
-    // Handle the selected company (e.g., store it in state or use it for subscription creation)
+    // Handle the selected company 
   };
 
   return (
