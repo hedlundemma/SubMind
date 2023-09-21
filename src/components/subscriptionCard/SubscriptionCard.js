@@ -28,11 +28,13 @@ const SubscriptionCard = (props) => {
   const router = useRouter();
   const handleButtonClick = () => {
     // router.push({pathname: `${props.id}`, query: {id: props.id}});
+    // router.push(`${[props.id]}?id=${props.id}`);
+    router.push(`${[props.id]}?id=${props.id}`)
     // router.push({
     //   pathname: `${props.id}`,
     //   query: { subscriptionId: props.id },
     // })
-    router.push(`${props.id}`)
+    // router.push(`${props.id}`)
     console.log("clicked");
   };
 
