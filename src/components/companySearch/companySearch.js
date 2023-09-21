@@ -1,28 +1,43 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import styled from "styled-components";
+
+const hardcodedCompanies = [
+  { name: 'netflix', displayName: 'Netflix' },
+  { name: 'disneyPlus', displayName: 'Disney+' },
+  { name: 'spotify', displayName: 'Spotify' }
+];
+
+
+const CompanyListItem = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+`;
 
 const CompanySearch = () => {
-  const hardcodedCompanies = ["Netflix", "DisneyPlus", "Spotify"];
-
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const [filteredCompanies, setFilteredCompanies] = useState([]);
 
   const handleInputChange = (e) => {
     const inputText = e.target.value;
     setSearchText(inputText);
 
+    // Clear the filtered list if nothing is typed
     if (inputText === '') {
       setFilteredCompanies([]);
     } else {
+      // Filter companies based on user input
       const filtered = hardcodedCompanies.filter((company) =>
-        company.toLowerCase().includes(inputText.toLowerCase())
+        company.displayName.toLowerCase().includes(inputText.toLowerCase())
       );
       setFilteredCompanies(filtered);
     }
   };
 
   const handleSelectCompany = (selectedCompany) => {
-    setSearchText(selectedCompany);
-    //handle selected company
+    setSearchText(selectedCompany.displayName);
+    // Handle the selected company (e.g., store it in state or use it for subscription creation)
   };
 
   return (
@@ -36,9 +51,10 @@ const CompanySearch = () => {
       {filteredCompanies.length > 0 && (
         <ul>
           {filteredCompanies.map((company) => (
-            <li key={company} onClick={() => handleSelectCompany(company)}>
-              {company}
-            </li>
+            <CompanyListItem key={company.name} onClick={() => handleSelectCompany(company)}>
+              <img src={`logo/${company.name}.svg`} alt={company.displayName} width={"30px"}/>
+              {company.displayName}
+            </CompanyListItem>
           ))}
         </ul>
       )}
