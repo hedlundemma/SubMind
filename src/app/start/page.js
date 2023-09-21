@@ -130,23 +130,32 @@ export default function Start() {
     ));
   }
 
-  return (
-    <Main>
-      <UserNavbar></UserNavbar>
-      <InfoSection>
-        <p>Totalkostnad för månad:</p>
-        <h3>{totalCost} Sek</h3>
-      </InfoSection>
-      <PrenumationButton
-        href="/subscription"
-        text="Lägg till prenumation"
-      ></PrenumationButton>
-      <Section>
-        <CardsContainer>{cardsComponent}</CardsContainer>
-        <ButtonDiv></ButtonDiv>
-        <button onClick={handleLogout}>Logout</button>
-      </Section>
-      <Footer></Footer>
-    </Main>
-  );
+  if(subscriptions)
+  {
+    return (
+      <Main>
+        <UserNavbar></UserNavbar>
+        <InfoSection>
+          <p>Totalkostnad för månad:</p>
+          <h3>{totalCost} Sek</h3>
+        </InfoSection>
+        <PrenumationButton
+          href="/subscription"
+          text="Lägg till prenumation"
+        ></PrenumationButton>
+        <Section>
+          <CardsContainer>{cardsComponent}</CardsContainer>
+          <ButtonDiv></ButtonDiv>
+          <button onClick={handleLogout}>Logout</button>
+        </Section>
+        <Footer></Footer>
+      </Main>
+    );
+  }
+  else
+  {
+    return(
+      <p>Loading...</p>
+    )
+  }
 }
