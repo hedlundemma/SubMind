@@ -123,7 +123,7 @@ const StreamingForm = () => {
 
   return (
     <Section>
-      <CompanySearch></CompanySearch>
+      <CompanySearch setService={setSelectedService}></CompanySearch>
       <form onSubmit={handleSubmit}>
         <label>
           Stremingtjänst

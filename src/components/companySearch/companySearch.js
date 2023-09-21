@@ -15,7 +15,7 @@ const CompanyListItem = styled.div`
   font-size: 16px;
 `;
 
-const CompanySearch = () => {
+const CompanySearch = (props) => {
   const [searchText, setSearchText] = useState('');
   const [filteredCompanies, setFilteredCompanies] = useState([]);
 
@@ -36,6 +36,7 @@ const CompanySearch = () => {
   const handleSelectCompany = (selectedCompany) => {
     setSearchText(selectedCompany.displayName);
     // Handle the selected company 
+    props.setService(selectedCompany.name);
   };
 
   return (
