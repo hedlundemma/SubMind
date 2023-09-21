@@ -112,7 +112,7 @@ const Slug = (id) => {
         <UserNavbar></UserNavbar>
         <SubscriptionPage>
           <BackButton href="start">Go back</BackButton>
-          <img src="logo/netflix.svg" />
+          <img src={`logo/${subscription.subscription}.svg`} />
           <MainInfo>
             <h1>{subscription.subscription}</h1>
             <Info>

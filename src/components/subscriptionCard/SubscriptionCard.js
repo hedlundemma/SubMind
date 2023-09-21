@@ -41,7 +41,8 @@ const SubscriptionCard = (props) => {
   return (
     <Card onClick={handleButtonClick}>
       <div>
-        <img src="./disney.svg" />
+        <img src={`./logo/${props.name}.svg`} />
+        <p>{props.name}</p>
       </div>
       <div>
         <h3>Konstnad</h3>
