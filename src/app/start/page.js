@@ -10,7 +10,7 @@ import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
 
 const Main = styled.div`
   background-color: white;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,6 +71,7 @@ export default function Start() {
         }
       }
     };
+    checkUserSession();
   }, [router]);
 
   useEffect(() => {
