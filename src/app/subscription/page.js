@@ -74,13 +74,22 @@ const StreamingForm = () => {
 
   //function to calculate renewaldate of subscriptions, yearly or monthly
   const calculateRenewalDate = (startDate, renewalFrequency) => {
-    const currentDate = new Date(startDate);
+    const currentDate = new Date();
+    const renewalDate = new Date(startDate);
+
     if (renewalFrequency === "monthly") {
-      currentDate.setMonth(currentDate.getMonth() + 1);
+      renewalDate.setMonth(renewalDate.getMonth() + 1);
     } else if (renewalFrequency === "yearly") {
-      currentDate.setFullYear(currentDate.getFullYear() + 1);
+      renewalDate.setFullYear(renewalDate.getFullYear() + 1);
     }
-    return currentDate.getDate();
+
+    // Calculate the difference in milliseconds between the renewal date and the current date
+    const timeDifference = renewalDate - currentDate;
+
+    // Calculate the number of days left until renewal
+    const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+    return daysLeft;
   };
 
   //array containing the options for streaming-services
@@ -117,12 +126,6 @@ const StreamingForm = () => {
     e.preventDefault();
 
     const renewalDate = calculateRenewalDate(startDate, renewalFrequency);
-
-    // const [yearNumber, monthNumber, dayNumber] = startDate.split("-");
-
-    // const day = parseInt(dayNumber, 10);
-    // const month = parseInt(monthNumber, 10);
-    // const year = parseInt(yearNumber, 10);
 
     console.log("Renew day:", renewalDate);
 

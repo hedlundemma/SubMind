@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { supabase } from "../../../supabase";
-
 const Card = styled.button`
   width: 100%;
   box-sizing: border-box;
@@ -30,7 +29,7 @@ const SubscriptionCard = (props) => {
   const router = useRouter();
   const [renewalDate, setRenewalDate] = useState(null);
 
-  //fetch the renew_date from the database to display left of subscripton
+  //fetch the renew_date from the database to use to calculate days left of subscripton
   useEffect(() => {
     const fetchRenewalDate = async () => {
       try {
