@@ -45,23 +45,63 @@ const UpdateInfo = styled.section`
     display: flex;
     flex-direction: row;
   }
+  h2 {
+    font-weight: 400;
+    margin-bottom: 16px;
+    margin-top: 64px;
+  
+  }
+  button {
+    box-sizing: border-box;
+    width: 358px;
+    padding: 8px 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    height: 40px;
+    margin-top: 16px;
 `;
 const UpdateInputField = styled.section`
-  input{
-    all:unset;
+  input {
+    all: unset;
     background-color: #ededed;
     height: 40px;
     padding-left: 16px;
   }
-  .left{
+  .left {
     border-radius: 10px 0 0 10px;
   }
-  .right{
+  .right {
     border-radius: 0 10px 10px 0;
   }
 `;
 
+const Logo = styled.img`
+  width: 15px;
+  height: 22px;
+  margin-top: 10px;
+`;
+
+const DeleteServiceButton = styled.button`
+  box-sizing: border-box;
+  width: 348px;
+  padding: 8px 0;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  height: 40px;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 400;
+`;
+
 const Slug = (id) => {
+  const router = useRouter();
   const [subscription, setSubscription] = useState(null);
   const [subscriptionId, setSubscriptionId] = useState(null);
   useEffect(() => {
@@ -106,12 +146,26 @@ const Slug = (id) => {
   }, [subscriptionId]);
   console.log(subscription);
 
+  //delete a single subscription from your account
+  const deleteSubscription = async () => {
+    try {
+      await supabase.from("Subscriptions").delete().eq("id", subscriptionId);
+
+      router.push("/overview");
+    } catch (error) {
+      console.error("Error deleting subscription:", error);
+    }
+  };
+
   if (subscription && subscription.id) {
     return (
       <>
         <UserNavbar></UserNavbar>
         <SubscriptionPage>
-          <BackButton href="start">Go back</BackButton>
+          <BackButton href="overview">
+            {" "}
+            <Logo src="/logo/Left-arrow.svg"></Logo>Gå tillbaka
+          </BackButton>
           <img src={`logo/${subscription.subscription}.svg`} />
           <MainInfo>
             <h1>{subscription.subscription}</h1>
@@ -156,10 +210,16 @@ const Slug = (id) => {
             </div>
             <button>Spara ändringar</button>
           </UpdateInfo>
-          <label class="switch">
-            <input type = "checkbox"></input>
-           <span class="slider round"></span>
-          </label>
+
+          <Link href="/overview">
+            <DeleteServiceButton onClick={deleteSubscription}>
+              Ta bort prenumeration
+            </DeleteServiceButton>
+          </Link>
+          <p>
+            Notera: Din prenumeration är fortfarande aktiv på tjänsten även om
+            du tar bort den i den här appen!
+          </p>
         </SubscriptionPage>
       </>
     );

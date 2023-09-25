@@ -165,7 +165,7 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
           console.error("Error deleting account:", error.message);
         } else {
           console.log("Account deleted successfully");
-          router.push("/goodbye");
+          router.push("/");
         }
       } catch (error) {
         console.error("Error:", error.message);

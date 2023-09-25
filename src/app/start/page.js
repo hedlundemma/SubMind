@@ -2,7 +2,7 @@
 import Footer from "@/components/footer/footer";
 import UserNavbar from "@/components/userNavbar/UserNavbar";
 import styled from "styled-components";
-import PrenumationButton from "@/components/subscriptionButton/SubscriptionButton";
+import SubscriptionButton from "@/components/subscriptionButton/SubscriptionButton";
 import { supabase } from "../../../supabase";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -58,10 +58,10 @@ export default function Start() {
         <h2>Lägg till en prenumeration för att komma igång!</h2>
         <img src="/logo/Arrow.svg" />
       </Section>
-      <PrenumationButton
+      <SubscriptionButton
         href="/subscription"
         text="Lägg till prenumation"
-      ></PrenumationButton>
+      ></SubscriptionButton>
 
       <Footer></Footer>
     </Main>

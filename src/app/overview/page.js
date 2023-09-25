@@ -1,10 +1,12 @@
 "use client";
 import Footer from "@/components/footer/footer";
 import UserNavbar from "@/components/userNavbar/UserNavbar";
-import { supabase } from "../../../supabase";
-import { useState, useEffect } from "react";
 import styled from "styled-components";
 import SubscriptionButton from "@/components/subscriptionButton/SubscriptionButton";
+import { supabase } from "../../../supabase";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
 
 const Main = styled.div`
@@ -67,12 +69,26 @@ const InnerImage = styled.img`
   height: 200px;
   object-fit: contain;
   position: absolute;
+  bottom: 0;
 `;
 
 function Overview() {
+  const router = useRouter();
   const [subscriptions, setSubscriptions] = useState("");
   const [user, setUser] = useState("");
   const [totalCost, setTotalCost] = useState(0);
+
+  useEffect(() => {
+    const checkUserSession = async () => {
+      const session = supabase.auth.getSession();
+      if (session) {
+        if ((await session).data.session == null) {
+          router.push("/login");
+        }
+      }
+    };
+    checkUserSession();
+  }, [router]);
 
   useEffect(() => {
     const fetchSubscriptions = async () => {
@@ -114,8 +130,6 @@ function Overview() {
         id={subscription.id}
         cost={subscription.monthly_cost}
         name={subscription.subscription}
-        startDate={subscription.startDate}
-        renewalFrequency={subscription.renewalFrequency}
       />
     ));
   }
@@ -135,7 +149,7 @@ function Overview() {
         <ButtonDiv>
           <SubscriptionButton
             href="/subscription"
-            text="Lägg till prenumation"
+            text="Lägg till prenumeration"
           ></SubscriptionButton>
         </ButtonDiv>
         <Section>

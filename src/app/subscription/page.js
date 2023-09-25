@@ -39,6 +39,8 @@ const Section = styled.section`
     border: none;
     background-color: #ededed;
     box-sizing: border-box;
+    color: #818898;
+    padding: 10px;
   }
   form button {
     box-sizing: border-box;
@@ -56,6 +58,17 @@ const Section = styled.section`
     font-weight: 200;
     width: 100%;
   }
+
+  select {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ededed;
+    box-sizing: border-box;
+    color: #818898;
+    padding: 10px;
+  }
 `;
 
 const Heading = styled.h2`
@@ -63,6 +76,11 @@ const Heading = styled.h2`
   font-weight: 400;
   margin-top: 52px;
   padding-bottom: 24px;
+`;
+
+const ChooseSection = styled.section`
+  display: flex;
+  flex-direction: row;
 `;
 
 const StreamingForm = () => {
@@ -90,6 +108,10 @@ const StreamingForm = () => {
     const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
     return daysLeft;
+  };
+
+  const handleButtonClick = () => {
+    router.push("/overview");
   };
 
   //array containing the options for streaming-services
@@ -169,34 +191,34 @@ const StreamingForm = () => {
               }}
             />
           </label>
+          <ChooseSection>
+            <label>
+              Kostnad
+              <input
+                type="text"
+                placeholder="Lägg till en kostnad"
+                value={cost}
+                onChange={(e) => setCost(e.target.value)}
+              />
+            </label>
 
-          <label>
-            Kostnad
-            <input
-              type="text"
-              value={cost}
-              onChange={(e) => setCost(e.target.value)}
-            />
-          </label>
+            <label>
+              Förnyas
+              <select
+                value={renewalFrequency}
+                onChange={(e) => setRenewalFrequency(e.target.value)}
+              >
+                {/* displaying the values from the array */}
+                {renewalFrequencyOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </ChooseSection>
 
-          <label>
-            Förnyas
-            <select
-              value={renewalFrequency}
-              onChange={(e) => setRenewalFrequency(e.target.value)}
-            >
-              {/* displaying the values from the array */}
-              {renewalFrequencyOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <Link href="/overview">
-            <button>Lägg till prenumeration</button>
-          </Link>
+          <button onClick={handleButtonClick}>Lägg till prenumeration</button>
         </form>
       </Section>
       <Footer></Footer>
