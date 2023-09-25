@@ -1,16 +1,12 @@
 require("dotenv").config();
+const withPWA = require('next-pwa')
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-module.exports = nextConfig;
-
-const withPWA = require("next-pwa")({
-  dest: "public",
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === "development",
-});
-
-module.exports = withPWA({
+const nextConfig = {
+  ...withPWA({
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+  }),
   async rewrites() {
     return [
       {
@@ -20,8 +16,11 @@ module.exports = withPWA({
     ];
   },
   reactStrictMode: true,
-
+  
   env: {
     SUPABASE_KEY: process.env.SUPABASE_KEY,
   },
-});
+};
+
+
+module.exports = nextConfig;

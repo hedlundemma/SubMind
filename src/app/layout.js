@@ -7,14 +7,12 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Submind",
   description: "Keep track of your subscriptions, school-project",
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="manifest" href="/manifest.json" />
-      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   );
