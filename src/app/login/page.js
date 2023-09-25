@@ -106,7 +106,7 @@ function LoginPage() {
         router.push("/start");
       } else {
         // Redirect to the returning user page
-        router.push("/start");
+        router.push("/overview");
       }
 
       console.log("Logged in:", data);
