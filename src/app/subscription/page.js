@@ -194,9 +194,9 @@ const StreamingForm = () => {
             </select>
           </label>
 
-          {/* <Link href="/overview"> */}
-          <button>Lägg till prenumeration</button>
-          {/* </Link> */}
+          <Link href="/overview">
+            <button>Lägg till prenumeration</button>
+          </Link>
         </form>
       </Section>
       <Footer></Footer>

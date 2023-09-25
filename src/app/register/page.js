@@ -129,7 +129,9 @@ export default function Register() {
               Jag godkänner <Link href="/userterms">Användarvillkoren</Link>
             </h3>
           </Agreement>
-          <button type="submit">Skapa konto</button>
+          <Link href="/overview">
+            <button type="submit">Skapa konto</button>
+          </Link>
         </form>
 
         <h3>

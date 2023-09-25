@@ -51,7 +51,7 @@ export default function UserNavbar() {
     <>
       <Header>
         <HeaderSecton>
-          <LogoSection href="/start">
+          <LogoSection href="/overview">
             <Logo src="/logo/logo.svg"></Logo>
             <Name>Submind</Name>
           </LogoSection>

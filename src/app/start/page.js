@@ -6,61 +6,38 @@ import PrenumationButton from "@/components/subscriptionButton/SubscriptionButto
 import { supabase } from "../../../supabase";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
 
 const Main = styled.div`
   background-color: white;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  button {
+    margin-bottom: 100px;
+  }
 `;
 
-const InfoSection = styled.section`
-  padding-left: 24px;
-  padding-right: 24px;
-  box-sizing: border-box;
-  width: 100%;
-  p {
-    font-size: 16px;
-  }
-  h3 {
-    font-size: 32px;
-    font-weight: 500;
-  }
-`;
 const Section = styled.section`
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  div {
-    width: 100%;
+  padding: 24px;
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
   }
-`;
-
-const CardsContainer = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ButtonDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  img {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
 `;
 
 export default function Start() {
   const router = useRouter();
-  const [subscriptions, setSubscriptions] = useState("");
   const [user, setUser] = useState("");
-  const [totalCost, setTotalCost] = useState(0);
 
   useEffect(() => {
     const checkUserSession = async () => {
@@ -74,72 +51,19 @@ export default function Start() {
     checkUserSession();
   }, [router]);
 
-  useEffect(() => {
-    const fetchSubscriptions = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      const { data } = await supabase
-        .from("Subscriptions")
-        .select()
-        .eq("user_uuid", user.id);
-      setSubscriptions(data);
-    };
-    fetchSubscriptions();
-  }, [user]);
-  console.log(subscriptions);
+  return (
+    <Main>
+      <UserNavbar></UserNavbar>
+      <Section>
+        <h2>Lägg till en prenumeration för att komma igång!</h2>
+        <img src="/logo/Arrow.svg" />
+      </Section>
+      <PrenumationButton
+        href="/subscription"
+        text="Lägg till prenumation"
+      ></PrenumationButton>
 
-  let cardsComponent = null;
-
-  useEffect(() => {
-    // Ensure subscriptions is an array before processing
-    if (Array.isArray(subscriptions)) {
-      // Initialize a variable to store the total cost
-      let calculatedTotalCost = 0;
-
-      // Loop through the subscriptions and calculate the total cost
-      subscriptions.forEach((subscription) => {
-        calculatedTotalCost += subscription.monthly_cost;
-      });
-
-      // Update the state with the calculated total cost
-      setTotalCost(calculatedTotalCost);
-    }
-  }, [subscriptions]);
-
-  if (Array.isArray(subscriptions)) {
-    cardsComponent = subscriptions.map((subscription) => (
-      <SubscriptionCard
-        key={subscription.id}
-        id={subscription.id}
-        cost={subscription.monthly_cost}
-        name={subscription.subscription}
-        startDate={subscription.startDate}
-        renewalFrequency={subscription.renewalFrequency}
-      />
-    ));
-  }
-
-  if (subscriptions) {
-    return (
-      <Main>
-        <UserNavbar></UserNavbar>
-        <InfoSection>
-          <p>Totalkostnad för månad:</p>
-          <h3>{totalCost} Sek</h3>
-        </InfoSection>
-        <PrenumationButton
-          href="/subscription"
-          text="Lägg till prenumation"
-        ></PrenumationButton>
-        <Section>
-          <CardsContainer>{cardsComponent}</CardsContainer>
-          <ButtonDiv></ButtonDiv>
-        </Section>
-        <Footer></Footer>
-      </Main>
-    );
-  } else {
-    return <p>Loading...</p>;
-  }
+      <Footer></Footer>
+    </Main>
+  );
 }
