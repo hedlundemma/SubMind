@@ -10,7 +10,7 @@ import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
 
 const Main = styled.div`
   background-color: white;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,7 @@ const InfoSection = styled.section`
   }
 `;
 const Section = styled.section`
-  height: 540px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -113,6 +113,8 @@ export default function Start() {
         id={subscription.id}
         cost={subscription.monthly_cost}
         name={subscription.subscription}
+        startDate={subscription.startDate}
+        renewalFrequency={subscription.renewalFrequency}
       />
     ));
   }
