@@ -6,6 +6,7 @@ import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
 import styled from "styled-components";
 import Link from "next/link";
 import UserNavbar from "@/components/userNavbar/UserNavbar";
+import Footer from "@/components/footer/footer";
 
 const BackButton = styled(Link)``;
 const SubscriptionPage = styled.section`
@@ -221,6 +222,7 @@ const Slug = (id) => {
             du tar bort den i den här appen!
           </p>
         </SubscriptionPage>
+        <Footer></Footer>
       </>
     );
   } else {
