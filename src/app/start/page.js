@@ -6,6 +6,8 @@ import SubscriptionButton from "@/components/subscriptionButton/SubscriptionButt
 import { supabase } from "../../../supabase";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import dynamic from 'next/dynamic'
+// import Notifications from "@/components/notifications/notifications";
 
 const Main = styled.div`
   background-color: white;
@@ -35,6 +37,10 @@ const Section = styled.section`
   }
 `;
 
+const Notifications = dynamic(() => import("@/components/notifications/notifications"), {
+  ssr: false, // Make sure to render component client side to access window and Notification APIs
+})
+
 export default function Start() {
   const router = useRouter();
   const [user, setUser] = useState("");
@@ -54,6 +60,7 @@ export default function Start() {
   return (
     <Main>
       <UserNavbar></UserNavbar>
+      <Notifications />
       <Section>
         <h2>Lägg till en prenumeration för att komma igång!</h2>
         <img src="/logo/Arrow.svg" />
