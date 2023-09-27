@@ -54,7 +54,7 @@ const ButtonDiv = styled.div`
 const OuterDiv = styled.div`
   background-image: url("/logo/Rectangle.png");
   background-position: center;
-  width: 385px;
+  width: 100vw;
   height: 252px;
 
   display: flex;
@@ -65,8 +65,8 @@ const OuterDiv = styled.div`
 
 // Styled component for the inner image
 const InnerImage = styled.img`
-  width: 342px;
-  height: 200px;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
   position: absolute;
   bottom: 0;

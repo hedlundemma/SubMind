@@ -6,7 +6,7 @@ const MenuContainer = styled.div`
   position: absolute;
   top: 80px;
   background-color: white;
-  width: 385px;
+  width: 100vw;
   height: 94%;
   z-index: 100;
   padding: 10px;

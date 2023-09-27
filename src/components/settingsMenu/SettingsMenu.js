@@ -9,8 +9,8 @@ import { useRouter } from "next/navigation";
 const MenuContainer = styled.div`
   position: absolute;
   top: 80px;
-  width: 390px;
-  height: 94%;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
   z-index: 100;
   padding: 10px;

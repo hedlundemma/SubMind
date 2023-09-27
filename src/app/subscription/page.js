@@ -54,7 +54,7 @@ const Section = styled.section`
   }
 
   label {
-    font-size: 16;
+    font-size: 14;
     font-weight: 200;
     width: 100%;
   }
@@ -114,12 +114,6 @@ const StreamingForm = () => {
     router.push("/overview");
   };
 
-  //array containing the options for streaming-services
-  const streamingServiceOptions = [
-    { value: "", label: "Välj en tjänst" },
-    { value: "netflix", label: "Netflix" },
-    { value: "disneyPlus", label: "Disney+" },
-  ];
   // array containing the options for renewal-frequenxy
   const renewalFrequencyOptions = [
     { value: "monthly", label: "Månadsvis" },
@@ -166,21 +160,6 @@ const StreamingForm = () => {
         <Heading>Lägg till prenumeration</Heading>
         <CompanySearch setService={setSelectedService}></CompanySearch>
         <form onSubmit={handleSubmit}>
-          <label>
-            Stremingtjänst
-            <select
-              value={selectedService}
-              onChange={(e) => setSelectedService(e.target.value)}
-            >
-              {/* displaying the values from the array */}
-              {streamingServiceOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-
           <label>
             Datum
             <input
