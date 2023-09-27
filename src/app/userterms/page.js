@@ -6,14 +6,24 @@ import styled from "styled-components";
 
 const Main = styled.div`
   background-color: white;
-  height: 1050px;
+  min-height: 100vh;
 `;
 
 const Section = styled.section`
-  height: 740px;
+  min-height: 100vh;
   padding: 16px;
   display: flex;
   flex-direction: column;
+
+  h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
 `;
 
 const Heading = styled.h2`
@@ -26,6 +36,7 @@ const Heading = styled.h2`
 const ContainerDiv = styled.div`
   padding: 20px;
   margin-bottom: 16px;
+  height: 100vh;
 `;
 
 const Logo = styled.img`
@@ -44,25 +55,37 @@ export default function userTerms() {
         </Link>
         <ContainerDiv>
           <Heading>Användarvillkor</Heading>
+          <h3> Introduktion</h3>
           <p>
-            Sit aliquam dolor eget arcu neque nisl. Malesuada aliquam odio fusce
-            purus dignissim. Posuere eleifend a at cursus auctor tortor ipsum
-            libero convallis. Mauris enim eu ut habitasse convallis vestibulum
-            euismod. Non iaculis viverra dictum in sed ac non. Dolor proin est
-            aenean turpis risus. Orci etiam eget condimentum bibendum nisl odio
-            orci enim ac. Feugiat ut facilisis ullamcorper in cursus imperdiet
-            sit phasellus porttitor. Id nunc proin euismod neque tellus risus
-            turpis lectus vel. Tellus diam luctus aenean quis nullam sit risus.
-            Nec eu tempus odio quam in erat justo praesent pe. Sit aliquam dolor
-            eget arcu neque nisl. Malesuada aliquam odio fusce purus dignissim.
-            Posuere eleifend a at cursus auctor tortor ipsum libero convallis.
-            Mauris enim eu ut habitasse convallis vestibulum euismod. Non
-            iaculis viverra dictum in sed ac non. Dolor proin est aenean turpis
-            risus. Orci etiam eget condimentum bibendum nisl odio orci enim ac.
-            Feugiat ut facilisis ullamcorper in cursus imperdiet sit phasellus
-            porttitor. Id nunc proin euismod neque tellus risus turpis lectus
-            vel. Tellus diam luctus aenean quis nullam sit risus. Nec eu tempus
-            odio quam in erat justo praesent pe
+            Denna sekretesspolicy beskriver hur Submind samlar in, använder,
+            lagrar och skyddar dina personuppgifter när du använder vår
+            prenumerationsspårningstjänst. Vi åtar oss att respektera din
+            integritet och följa tillämpliga dataskyddslagar, inklusive den
+            allmänna dataskyddsförordningen (GDPR).
+          </p>
+          <h3> Information vi samlar in:</h3>
+          <p>
+            Användarkontoinformation: När du skapar ett konto på vår
+            prenumerationsspårare samlar vi in ​och lagrar följande information:
+            E-postadress och Lösenord
+          </p>
+          <h3> Hur vi använder dina uppgifter:</h3>
+          <p>
+            Vi använder din e-postadress och ditt lösenord för att skapa och
+            hantera ditt konto, låta dig logga in och ge tillgång till våra
+            prenumerationsspårningstjänster.
+          </p>
+          <h3> Dina rättigheter:</h3>
+          <p>
+            Du kan begära tillgång till de personuppgifter vi har om dig, gör
+            detta genom att kontakta oss på submind@help.com. Radering: Du kan
+            begära radering av dina personuppgifter under vissa omständigheter.
+          </p>
+          <h3>Kontakta oss:</h3>
+          <p>
+            Om du har några frågor eller funderingar angående denna
+            integritetspolicy eller dina personuppgifter, vänligen kontakta oss
+            på submind@help.com.
           </p>
         </ContainerDiv>
       </Section>
