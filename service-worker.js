@@ -56,7 +56,7 @@ self.addEventListener('push', async (event) => {
 const showLocalNotification = (title, body, swRegistration) => {
   swRegistration.showNotification(title, {
     body,
-    icon: 'logo/192x192.png',
+    icon: 'logo/subMindLogo192x192.png',
   })
 }
 
