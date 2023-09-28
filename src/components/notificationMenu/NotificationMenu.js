@@ -1,4 +1,3 @@
-" use client";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -11,9 +10,13 @@ const MenuContainer = styled.div`
   z-index: 100;
   padding: 10px;
   display: ${(props) => (props.$isOpen ? "block" : "none")};
+`;
+
+const Container = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+
 `;
 
 const ToggleContainer = styled.div`
@@ -29,7 +32,8 @@ const ToggleContainer = styled.div`
 const ToggleButton = styled.div`
   width: 50px;
   height: 24px;
-  background-color: ${(props) => (props.isToggled ? "RGBA(0, 133, 29, 0.5)" : "lightgray")};
+  background-color: ${(props) =>
+    props.isToggled ? "RGBA(0, 133, 29, 0.5)" : "lightgray"};
   border-radius: 12px;
   position: relative;
   transition: background-color 0.3s ease;
@@ -38,7 +42,7 @@ const ToggleButton = styled.div`
 const Circle = styled.div`
   width: 20px;
   height: 20px;
-  background-color: #00851D;
+  background-color: #00851d;
   border-radius: 50%;
   position: absolute;
   top: 2px;
@@ -90,35 +94,37 @@ const NotificationMenu = ({ isOpen, toggleMenu }) => {
         </NotificationContainer>
       </Section>
 
-      <ToggleContainer>
-      <p>Alla notiser</p>
-        <ToggleButton
-          onClick={() => setIsToggle1Left(!isToggle1Left)}
-          isToggled={!isToggle1Left}
-        >
-          <Circle isToggled={!isToggle1Left} />
-        </ToggleButton>
-      </ToggleContainer>
+      <Container>
+        <ToggleContainer>
+          <p>Alla notiser</p>
+          <ToggleButton
+            onClick={() => setIsToggle1Left(!isToggle1Left)}
+            isToggled={!isToggle1Left}
+          >
+            <Circle isToggled={!isToggle1Left} />
+          </ToggleButton>
+        </ToggleContainer>
 
-      <ToggleContainer>
-      <p>Notiser via mail</p>
-        <ToggleButton
-          onClick={() => setIsToggle2Left(!isToggle2Left)}
-          isToggled={!isToggle2Left}
-        >
-          <Circle isToggled={!isToggle2Left} />
-        </ToggleButton>
-      </ToggleContainer>
+        <ToggleContainer>
+          <p>Notiser via mail</p>
+          <ToggleButton
+            onClick={() => setIsToggle2Left(!isToggle2Left)}
+            isToggled={!isToggle2Left}
+          >
+            <Circle isToggled={!isToggle2Left} />
+          </ToggleButton>
+        </ToggleContainer>
 
-      <ToggleContainer>
-        <p>Notiser i webbläsaren</p>
-        <ToggleButton
-          onClick={() => setIsToggle3Left(!isToggle3Left)}
-          isToggled={!isToggle3Left}
-        >
-          <Circle isToggled={!isToggle3Left} />
-        </ToggleButton>
-      </ToggleContainer>
+        <ToggleContainer>
+          <p>Notiser i webbläsaren</p>
+          <ToggleButton
+            onClick={() => setIsToggle3Left(!isToggle3Left)}
+            isToggled={!isToggle3Left}
+          >
+            <Circle isToggled={!isToggle3Left} />
+          </ToggleButton>
+        </ToggleContainer>
+      </Container>
     </MenuContainer>
   );
 };
