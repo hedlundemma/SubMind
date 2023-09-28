@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -16,7 +17,6 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 16px;
-
 `;
 
 const ToggleContainer = styled.div`
@@ -33,7 +33,7 @@ const ToggleButton = styled.div`
   width: 50px;
   height: 24px;
   background-color: ${(props) =>
-    props.isToggled ? "RGBA(0, 133, 29, 0.5)" : "lightgray"};
+    props.toggled === "true" ? "RGBA(0, 133, 29, 0.5)" : "lightgray"};
   border-radius: 12px;
   position: relative;
   transition: background-color 0.3s ease;
@@ -46,13 +46,14 @@ const Circle = styled.div`
   border-radius: 50%;
   position: absolute;
   top: 2px;
-  left: ${(props) => (props.isToggled ? "30px" : "2px")};
+  left: ${(props) => (props.toggled === "true" ? "30px" : "2px")};
   transition: left 0.3s ease, background-color 0.3s ease;
 `;
 
 const Section = styled.div`
   padding: 20px;
 `;
+
 const Heading = styled.h1`
   font-size: 20px;
   font-weight: 300;
@@ -99,9 +100,9 @@ const NotificationMenu = ({ isOpen, toggleMenu }) => {
           <p>Alla notiser</p>
           <ToggleButton
             onClick={() => setIsToggle1Left(!isToggle1Left)}
-            isToggled={!isToggle1Left}
+            toggled={isToggle1Left.toString()} 
           >
-            <Circle isToggled={!isToggle1Left} />
+            <Circle toggled={isToggle1Left.toString()} />
           </ToggleButton>
         </ToggleContainer>
 
@@ -109,9 +110,9 @@ const NotificationMenu = ({ isOpen, toggleMenu }) => {
           <p>Notiser via mail</p>
           <ToggleButton
             onClick={() => setIsToggle2Left(!isToggle2Left)}
-            isToggled={!isToggle2Left}
+            toggled={isToggle2Left.toString()} 
           >
-            <Circle isToggled={!isToggle2Left} />
+            <Circle toggled={isToggle2Left.toString()} />
           </ToggleButton>
         </ToggleContainer>
 
@@ -119,9 +120,9 @@ const NotificationMenu = ({ isOpen, toggleMenu }) => {
           <p>Notiser i webbläsaren</p>
           <ToggleButton
             onClick={() => setIsToggle3Left(!isToggle3Left)}
-            isToggled={!isToggle3Left}
+            toggled={isToggle3Left.toString()} 
           >
-            <Circle isToggled={!isToggle3Left} />
+            <Circle toggled={isToggle3Left.toString()} />
           </ToggleButton>
         </ToggleContainer>
       </Container>
