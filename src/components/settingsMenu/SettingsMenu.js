@@ -97,12 +97,17 @@ const LogoutButton = styled.button`
   box-sizing: border-box;
   width: 100%;
   padding: 8px 0;
-  background-color: black;
-  color: white;
+  color: black;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 6px;
   height: 40px;
-  margin-top: 12px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 400;
 `;
 
 const SettingsMenu = ({ isOpen, toggleMenu }) => {
@@ -117,7 +122,7 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
     }
   }, [user]);
 
-  //function to change the account info, email and password
+  //function to change the account info, email and password (doesnt work)
   const changeAccountInfo = async (e) => {
     e.preventDefault();
 
@@ -159,7 +164,7 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
       try {
         // Delete the user's account in Supabase
         await supabase.auth.signOut(); // Sign the user out first
-        const { error } = await supabase.auth.api.deleteUser(user.id);
+        const { error } = await supabase.auth.admin.deleteUser(user.id);
 
         if (error) {
           console.error("Error deleting account:", error.message);
@@ -214,13 +219,14 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
           </div>
           <button type="submit">Spara kontouppgifter</button>
         </form>
+        <div>
+          <LogoutButton onClick={handleLogout}>Logga ut</LogoutButton>
+        </div>
 
         <DeleteAccountButton onClick={deleteAccount}>
           Ta bort kontot
         </DeleteAccountButton>
-        <div>
-          <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
-        </div>
+
         <p>
           Notera: Din prenumeration är fortfarande aktiv på tjänsten även om du
           tar bort den i den här appen!
