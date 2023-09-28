@@ -23,6 +23,7 @@ const Main = styled.div`
 
 const Section = styled.section`
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
   padding: 24px;
@@ -66,6 +67,7 @@ export default function Start() {
       <Notifications />
       <Section>
         <h2>Lägg till en prenumeration för att komma igång!</h2>
+        <img src="logo/arrow.svg" alt="arrow pointing down" />
       </Section>
       <SubscriptionButton
         href="/subscription"
