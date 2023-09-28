@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import Link from "next/link";
-import { Days_One, Stardos_Stencil } from "next/font/google";
 import CompanySearch from "@/components/companySearch/companySearch";
 
 const Main = styled.div`
@@ -15,6 +14,13 @@ const Main = styled.div`
   height: 830px;
 `;
 
+const CrossButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+`;
 const Section = styled.section`
   display: flex;
   flex-direction: column;
@@ -77,14 +83,19 @@ const Section = styled.section`
 const Heading = styled.h2`
   font-size: 24px;
   font-weight: 400;
-  margin-top: 52px;
-  padding-bottom: 24px;
   font-family: "K2D";
 `;
 
 const ChooseSection = styled.section`
   display: flex;
   flex-direction: row;
+`;
+
+const PrenumationSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 24px;
 `;
 
 const StreamingForm = () => {
@@ -161,7 +172,14 @@ const StreamingForm = () => {
     <Main>
       <UserNavbar></UserNavbar>
       <Section>
-        <Heading>Lägg till prenumeration</Heading>
+        <PrenumationSection>
+          <Heading>Lägg till prenumeration</Heading>
+          <Link href="/overview">
+            <CrossButton>
+              <img src="/logo/cross.svg" alt="a cross icon" />
+            </CrossButton>
+          </Link>
+        </PrenumationSection>
         <CompanySearch setService={setSelectedService}></CompanySearch>
         <form onSubmit={handleSubmit}>
           <label>

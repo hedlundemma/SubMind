@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/x-icon" href="/logo/icon.png" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>

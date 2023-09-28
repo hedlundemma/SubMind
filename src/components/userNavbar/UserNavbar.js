@@ -18,6 +18,7 @@ const HeaderSecton = styled.section`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  height: 24px;
 `;
 const LogoSection = styled(Link)`
   display: flex;
@@ -33,6 +34,16 @@ const Logo = styled.img`
 const Name = styled.h1`
   font-size: 24px;
   font-weight: 600;
+`;
+
+const BellImage = styled.img`
+  width: 22px;
+  height: 22px;
+`;
+
+const SettingsImage = styled.img`
+  width: 26px;
+  height: 26px;
 `;
 
 export default function UserNavbar() {
@@ -57,13 +68,13 @@ export default function UserNavbar() {
           </LogoSection>
         </HeaderSecton>
         <HeaderSecton>
-          <img
+          <BellImage
             src="/logo/Bell.svg"
             alt="Icon"
             onClick={toggleNotificationMenu}
           />
 
-          <img
+          <SettingsImage
             src="/logo/Settings.svg"
             alt="Icon"
             onClick={toggleSettingsMenu}

@@ -41,7 +41,7 @@ const ContainerDiv = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 15px;
+  width: 77px;
   height: 22px;
   margin-top: 10px;
 `;
@@ -52,7 +52,7 @@ export default function userTerms() {
       <Navbar></Navbar>
       <Section>
         <Link href="/register">
-          <Logo src="/logo/Left-arrow.svg"></Logo>Gå tillbaka
+          <Logo src="/logo/back.svg"></Logo>
         </Link>
         <ContainerDiv>
           <Heading>Användarvillkor</Heading>

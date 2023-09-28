@@ -39,6 +39,12 @@ const MainInfo = styled.section`
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  h2 {
+    font-family: "K2D";
+    font-size: 22px;
+    font-weight: 400;
+  }
 `;
 const UpdateInfo = styled.section`
   div {
@@ -50,6 +56,7 @@ const UpdateInfo = styled.section`
     font-weight: 400;
     margin-bottom: 16px;
     margin-top: 64px;
+    font-family: "K2D";
   
   }
   button {
@@ -59,16 +66,19 @@ const UpdateInfo = styled.section`
     background-color: black;
     color: white;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     height: 40px;
     margin-top: 16px;
+    font-family: "K2D";
+
+
 `;
 const UpdateInputField = styled.section`
   input {
     all: unset;
     background-color: #ededed;
     height: 40px;
-    padding-left: 16px;
+    margin-bottom: 10px;
   }
   .left {
     border-radius: 10px 0 0 10px;
@@ -76,10 +86,13 @@ const UpdateInputField = styled.section`
   .right {
     border-radius: 0 10px 10px 0;
   }
+  p {
+    justify-self: center;
+  }
 `;
 
 const Logo = styled.img`
-  width: 15px;
+  width: 77px;
   height: 22px;
   margin-top: 10px;
 `;
@@ -94,11 +107,19 @@ const DeleteServiceButton = styled.button`
   height: 40px;
   background-color: white;
   border: 1px solid red;
-  border-radius: 16px;
+  border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
   font-size: 20px;
   font-weight: 400;
+  font-family: "K2D";
+`;
+
+const CheckboxInput = styled.input`
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  margin-right: 2px;
 `;
 
 const Slug = (id) => {
@@ -112,6 +133,7 @@ const Slug = (id) => {
     };
     setId();
   }, [id]);
+
   useEffect(() => {
     const fetchSubscription = async () => {
       const {
@@ -165,11 +187,11 @@ const Slug = (id) => {
         <SubscriptionPage>
           <BackButton href="overview">
             {" "}
-            <Logo src="/logo/Left-arrow.svg"></Logo>Gå tillbaka
+            <Logo src="/logo/back.svg"></Logo>
           </BackButton>
           <img src={`logo/${subscription.subscription}.svg`} />
           <MainInfo>
-            <h1>{subscription.subscription}</h1>
+            <h2>{subscription.subscription}</h2>
             <Info>
               <div>
                 <p>Start datum:</p>
@@ -206,7 +228,7 @@ const Slug = (id) => {
               </UpdateInputField>
             </div>
             <div>
-              <input type="checkbox" />
+              <CheckboxInput type="checkbox" />
               <p>Gratisperiod?</p>
             </div>
             <button>Spara ändringar</button>
