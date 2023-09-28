@@ -11,6 +11,39 @@ const MenuContainer = styled.div`
   z-index: 100;
   padding: 10px;
   display: ${(props) => (props.$isOpen ? "block" : "none")};
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const ToggleContainer = styled.div`
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const ToggleButton = styled.div`
+  width: 50px;
+  height: 24px;
+  background-color: ${(props) => (props.isToggled ? "RGBA(0, 133, 29, 0.5)" : "lightgray")};
+  border-radius: 12px;
+  position: relative;
+  transition: background-color 0.3s ease;
+`;
+
+const Circle = styled.div`
+  width: 20px;
+  height: 20px;
+  background-color: #00851D;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: ${(props) => (props.isToggled ? "30px" : "2px")};
+  transition: left 0.3s ease, background-color 0.3s ease;
 `;
 
 const Section = styled.div`
@@ -38,17 +71,14 @@ const CrossButton = styled.button`
 `;
 
 const NotificationMenu = ({ isOpen, toggleMenu }) => {
-  // function to close the menu by calling the toggleMenu function
+  const [isToggle1Left, setIsToggle1Left] = useState(false);
+  const [isToggle2Left, setIsToggle2Left] = useState(false);
+  const [isToggle3Left, setIsToggle3Left] = useState(false);
+
   const closeMenu = () => {
     toggleMenu();
   };
 
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-
-  const handleSwitchChange = (newState) => {
-    setIsSwitchOn(newState);
-    // You can perform any actions here based on the new state.
-  };
   return (
     <MenuContainer $isOpen={isOpen}>
       <Section>
@@ -59,6 +89,36 @@ const NotificationMenu = ({ isOpen, toggleMenu }) => {
           </CrossButton>
         </NotificationContainer>
       </Section>
+
+      <ToggleContainer>
+      <p>Alla notiser</p>
+        <ToggleButton
+          onClick={() => setIsToggle1Left(!isToggle1Left)}
+          isToggled={!isToggle1Left}
+        >
+          <Circle isToggled={!isToggle1Left} />
+        </ToggleButton>
+      </ToggleContainer>
+
+      <ToggleContainer>
+      <p>Notiser via mail</p>
+        <ToggleButton
+          onClick={() => setIsToggle2Left(!isToggle2Left)}
+          isToggled={!isToggle2Left}
+        >
+          <Circle isToggled={!isToggle2Left} />
+        </ToggleButton>
+      </ToggleContainer>
+
+      <ToggleContainer>
+        <p>Notiser i webbläsaren</p>
+        <ToggleButton
+          onClick={() => setIsToggle3Left(!isToggle3Left)}
+          isToggled={!isToggle3Left}
+        >
+          <Circle isToggled={!isToggle3Left} />
+        </ToggleButton>
+      </ToggleContainer>
     </MenuContainer>
   );
 };
