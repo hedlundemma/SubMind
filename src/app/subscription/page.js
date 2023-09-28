@@ -49,9 +49,11 @@ const Section = styled.section`
     background-color: black;
     color: white;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     height: 40px;
     font-family: "K2D";
+    margin-top: 24px;
+    font-size: 18px;
   }
 
   label {

@@ -44,7 +44,7 @@ const Section = styled.div`
     background-color: black;
     color: white;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 6px;
     height: 40px;
     margin-top: 12px;
   }
@@ -73,12 +73,12 @@ const DeleteAccountButton = styled.button`
   height: 40px;
   background-color: white;
   border: 1px solid red;
-  border-radius: 16px;
   cursor: pointer;
   margin-top: 20px;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 24px;
+  font-family: "K2D";
 `;
 
 const CrossButton = styled.button`
@@ -104,11 +104,11 @@ const LogoutButton = styled.button`
   height: 40px;
   background-color: white;
   border: 1px solid black;
-  border-radius: 16px;
   cursor: pointer;
   margin-top: 20px;
   font-size: 20px;
   font-weight: 400;
+  font-family: "K2D";
 `;
 
 const SettingsMenu = ({ isOpen, toggleMenu }) => {
@@ -164,7 +164,7 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
       // const {
       //   data: { user },
       // } = await supabase.auth.getUser();
-      const { } = await supabase.auth.signOut();
+      const {} = await supabase.auth.signOut();
       // const test = supabase.auth.getSession();
       // const adminToken = (await test).data.session.access_token
       // // Delete the user account

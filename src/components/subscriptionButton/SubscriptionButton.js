@@ -9,7 +9,7 @@ const Button = styled.button`
   height: 55px;
   font-family: "K2D";
   font-size: 18px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   img {
     margin-right: 20px;
