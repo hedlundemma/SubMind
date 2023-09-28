@@ -38,7 +38,7 @@ const Section = styled.section`
     margin-bottom: 48px;
   }
 `;
-const Notifications = dynamic(
+const NotificationsComponent = dynamic(
   () => import("@/components/notificationsComponent/NotificationsComponent"),
   {
     ssr: false, // Make sure to render component client side to access window and Notification APIs
