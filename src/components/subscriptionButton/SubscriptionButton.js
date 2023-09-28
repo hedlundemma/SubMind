@@ -7,10 +7,10 @@ const Button = styled.button`
   color: white;
   width: 340px;
   height: 55px;
+  font-family: "K2D";
   font-size: 18px;
   border-radius: 10px;
   cursor: pointer;
-  font-weight: 300;
   img {
     margin-right: 20px;
   }

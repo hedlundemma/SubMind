@@ -31,6 +31,7 @@ const Section = styled.section`
     font-size: 24px;
     font-weight: 400;
     text-align: center;
+    font-family: "K2D";
   }
   img {
     margin-top: 48px;
@@ -71,7 +72,7 @@ export default function Start() {
       </Section>
       <SubscriptionButton
         href="/subscription"
-        text="Lägg till prenumation"
+        text="Lägg till prenumeration"
       ></SubscriptionButton>
 
       <Footer></Footer>
