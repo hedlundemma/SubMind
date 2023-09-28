@@ -38,14 +38,12 @@ const Section = styled.section`
     margin-bottom: 48px;
   }
 `;
-
 const Notifications = dynamic(
-  () => import("@/components/notifications/Notifications"),
+  () => import("@/components/notificationsComponent/NotificationsComponent"),
   {
     ssr: false, // Make sure to render component client side to access window and Notification APIs
   }
 );
-
 export default function Start() {
   const router = useRouter();
   const [user, setUser] = useState("");
@@ -65,7 +63,7 @@ export default function Start() {
   return (
     <Main>
       <UserNavbar></UserNavbar>
-      <Notifications />
+      <NotificationsComponent />
       <Section>
         <h2>Lägg till en prenumeration för att komma igång!</h2>
         <img src="logo/arrow.svg" alt="arrow pointing down" />

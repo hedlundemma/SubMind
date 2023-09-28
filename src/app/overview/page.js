@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 
 import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
 import { Dai_Banna_SIL } from "next/font/google";
+import NotificationsComponent from "@/components/notificationsComponent/NotificationsComponent";
 
 const Main = styled.div`
   background-color: white;
@@ -73,9 +74,8 @@ const InnerImage = styled.img`
   position: absolute;
   bottom: 0;
 `;
-
 const Notifications = dynamic(
-  () => import("@/components/notifications/Notifications"),
+  () => import("@/components/notificationsComponent/NotificationsComponent"),
   {
     ssr: false, // Make sure to render component client side to access window and Notification APIs
   }
@@ -145,7 +145,7 @@ function Overview() {
   if (subscriptions) {
     return (
       <Main>
-        <Notifications />
+        <NotificationsComponent />
         <UserNavbar></UserNavbar>
         <OuterDiv>
           <InnerImage src="/logo/Graph.svg" alt="Graph image" />

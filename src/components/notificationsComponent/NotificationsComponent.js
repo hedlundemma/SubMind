@@ -7,7 +7,7 @@ const notificationsSupported = () =>
   "serviceWorker" in navigator &&
   "PushManager" in window;
 
-export default function Notifications() {
+export default function NotificationsComponent() {
   subscribe();
   if (!notificationsSupported()) {
     return <h3>Please install the PWA first!</h3>;
