@@ -8,7 +8,10 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
+
+
 import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
+import { Dai_Banna_SIL } from "next/font/google";
 
 const Main = styled.div`
   background-color: white;
@@ -74,7 +77,7 @@ const InnerImage = styled.img`
 `;
 
 const Notifications = dynamic(
-  () => import("@/components/notifications/notifications"),
+  () => import("@/components/notifications/Notifications"),
   {
     ssr: false, // Make sure to render component client side to access window and Notification APIs
   }

@@ -4,7 +4,7 @@ import { CONFIG } from '@/config'
 import {
   getSubscriptionsFromDb,
   saveSubscriptionToDb,
-} from '@/utils/db/in-memory-db'
+} from '@/utils/in-memory-db'
 
 webpush.setVapidDetails(
   'mailto:test@example.com',
@@ -21,7 +21,6 @@ export async function POST(request) {
   }
 
   const updatedDb = await saveSubscriptionToDb(subscription)
-
   return NextResponse.json({ message: 'success', updatedDb })
 }
 
@@ -30,8 +29,8 @@ export async function GET(_) {
   
     subscriptions.forEach((s) => {
       const payload = JSON.stringify({
-        title: 'WebPush Notification!',
-        body: 'Hello World',
+        title: 'Submind',
+        body: 'Your subscription is about to expire',
       })
       webpush.sendNotification(s, payload)
     })
