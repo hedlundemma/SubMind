@@ -159,19 +159,20 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
     const confirmation = window.confirm(
       "Are you sure you want to delete your account? This action cannot be undone."
     );
+    if (confirmation) {
+      // const {
+      //   data: { user },
+      // } = await supabase.auth.getUser();
+      const { } = await supabase.auth.signOut();
+      // const test = supabase.auth.getSession();
+      // const adminToken = (await test).data.session.access_token
+      // // Delete the user account
+      // const { data, error } = await supabase.auth.admin.deleteUser(
+      //   user.id, { headers: { Authorization: `Bearer ${adminToken}` } }
+      // )
 
-    if (confirmation && user) {
+      router.push("/login");
       try {
-        // Delete the user's account in Supabase
-        await supabase.auth.signOut(); // Sign the user out first
-        const { error } = await supabase.auth.admin.deleteUser(user.id);
-
-        if (error) {
-          console.error("Error deleting account:", error.message);
-        } else {
-          console.log("Account deleted successfully");
-          router.push("/");
-        }
       } catch (error) {
         console.error("Error:", error.message);
       }
@@ -182,6 +183,7 @@ const SettingsMenu = ({ isOpen, toggleMenu }) => {
   const closeMenu = () => {
     toggleMenu();
   };
+
   return (
     <MenuContainer $isOpen={isOpen}>
       <Section>

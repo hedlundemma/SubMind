@@ -114,7 +114,7 @@ function Overview() {
     };
     fetchSubscriptions();
   }, [user]);
-  console.log(subscriptions);
+
 
   let cardsComponent = null;
 

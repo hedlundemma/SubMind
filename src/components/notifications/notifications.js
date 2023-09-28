@@ -37,6 +37,8 @@ const subscribe = async () => {
     const subscription = await swRegistration.pushManager.subscribe(options)
 
     await saveSubscription(subscription)
+    
+    //save subsctipion endpoint to user in supabase
 
     console.log({ subscription })
   } catch (err) {

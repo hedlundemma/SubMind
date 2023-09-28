@@ -7,6 +7,8 @@ import Footer from "@/components/footer/footer";
 import styled from "styled-components";
 import { useRouter } from "next/navigation";
 
+
+
 const Main = styled.div`
   background-color: white;
   height: 850px;
@@ -90,7 +92,7 @@ export default function Register() {
         console.error("Registration error:", error.message);
       } else {
         console.log("Registration successful:", data);
-        router.push("/registerConfirmation");
+        router.push("/login");
       }
     } catch (error) {
       console.error("Registration error:", error.message);
@@ -129,9 +131,7 @@ export default function Register() {
               Jag godkänner <Link href="/userterms">Användarvillkoren</Link>
             </h3>
           </Agreement>
-          <Link href="/overview">
-            <button type="submit">Skapa konto</button>
-          </Link>
+            <button onClick={handleRegister}>Skapa konto</button>
         </form>
 
         <h3>

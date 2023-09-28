@@ -72,7 +72,6 @@ function LoginPage() {
     const checkUserSession = async () => {
       const session = supabase.auth.getSession();
       if (session) {
-        console.log((await session).data);
         if ((await session).data.session != null) {
           const {
             data: { user },
