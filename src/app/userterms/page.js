@@ -31,6 +31,7 @@ const Heading = styled.h2`
   font-weight: 300;
   margin-bottom: 12px;
   margin-top: 32px;
+  font-family: "K2D";
 `;
 
 const ContainerDiv = styled.div`

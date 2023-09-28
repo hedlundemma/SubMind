@@ -51,6 +51,7 @@ const Section = styled.section`
     text-align: center;
     border-radius: 10px;
     height: 40px;
+    font-family: "K2D";
   }
 
   label {
@@ -76,6 +77,7 @@ const Heading = styled.h2`
   font-weight: 400;
   margin-top: 52px;
   padding-bottom: 24px;
+  font-family: "K2D";
 `;
 
 const ChooseSection = styled.section`

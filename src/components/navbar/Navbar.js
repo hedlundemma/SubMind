@@ -30,6 +30,8 @@ const LoginBtn = styled(Link)`
   font-size: 12px;
   padding: 8px;
   color: black;
+  font-family: "K2D";
+  font-weight: 500;
 `;
 const RegisterBtn = styled(Link)`
   font-size: 12px;
@@ -37,6 +39,8 @@ const RegisterBtn = styled(Link)`
   background-color: black;
   color: white;
   padding: 12px 16px;
+  font-family: "K2D";
+  font-weight: 500;
 `;
 
 export default function Navbar() {

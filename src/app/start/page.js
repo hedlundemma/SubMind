@@ -23,6 +23,7 @@ const Main = styled.div`
 
 const Section = styled.section`
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
   padding: 24px;
@@ -30,6 +31,7 @@ const Section = styled.section`
     font-size: 24px;
     font-weight: 400;
     text-align: center;
+    font-family: "K2D";
   }
   img {
     margin-top: 48px;
@@ -66,10 +68,11 @@ export default function Start() {
       <Notifications />
       <Section>
         <h2>Lägg till en prenumeration för att komma igång!</h2>
+        <img src="logo/arrow.svg" alt="arrow pointing down" />
       </Section>
       <SubscriptionButton
         href="/subscription"
-        text="Lägg till prenumation"
+        text="Lägg till prenumeration"
       ></SubscriptionButton>
 
       <Footer></Footer>

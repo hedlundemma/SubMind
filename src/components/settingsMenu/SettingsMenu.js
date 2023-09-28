@@ -78,6 +78,7 @@ const DeleteAccountButton = styled.button`
   margin-top: 20px;
   font-size: 20px;
   font-weight: 400;
+  margin-bottom: 24px;
 `;
 
 const CrossButton = styled.button`

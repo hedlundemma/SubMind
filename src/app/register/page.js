@@ -49,9 +49,12 @@ const Section = styled.section`
     text-align: center;
     border-radius: 10px;
     height: 40px;
+    font-family: "K2D";
+    font-size: 18px;
   }
-  h1 {
+  h2 {
     font-weight: 400;
+    font-family: "K2D";
   }
   h3 {
     font-size: 16;
@@ -103,7 +106,7 @@ export default function Register() {
     <Main>
       <Navbar></Navbar>
       <Section>
-        <h1>Registrera dig</h1>
+        <h2>Skapa konto</h2>
         <form onSubmit={handleRegister}>
           <div>
             <input
