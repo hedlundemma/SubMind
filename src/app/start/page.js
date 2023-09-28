@@ -66,7 +66,6 @@ export default function Start() {
       <Notifications />
       <Section>
         <h2>Lägg till en prenumeration för att komma igång!</h2>
-        <img src="logo/arrow.svg" alt="arrow pointing down"/>
       </Section>
       <SubscriptionButton
         href="/subscription"
