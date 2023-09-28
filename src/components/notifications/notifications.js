@@ -7,7 +7,7 @@ const notificationsSupported = () =>
   "serviceWorker" in navigator &&
   "PushManager" in window;
 
-export default function Notifications() {
+export default function notifications() {
   subscribe();
   if (!notificationsSupported()) {
     return <h3>Please install the PWA first!</h3>;
@@ -38,7 +38,7 @@ const subscribe = async () => {
 
     await saveSubscription(subscription);
 
-    //save subsctipion endpoint to user in supabase
+    //save subsctipion endpoint to user in supabase!
 
     console.log({ subscription });
   } catch (err) {

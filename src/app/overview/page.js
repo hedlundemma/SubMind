@@ -8,8 +8,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
-
-
 import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
 import { Dai_Banna_SIL } from "next/font/google";
 
@@ -114,7 +112,6 @@ function Overview() {
     };
     fetchSubscriptions();
   }, [user]);
-
 
   let cardsComponent = null;
 
