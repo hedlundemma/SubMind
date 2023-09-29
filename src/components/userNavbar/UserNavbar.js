@@ -50,10 +50,12 @@ export default function UserNavbar() {
   const [isNotificationMenuOpen, setNotificationMenuOpen] = useState(false);
   const [isSettingsMenuOpen, setSettingsMenuOpen] = useState(false);
 
+  //open up the notification-menu
   const toggleNotificationMenu = () => {
     setNotificationMenuOpen(!isNotificationMenuOpen);
   };
 
+  //open up the settings-menu
   const toggleSettingsMenu = () => {
     setSettingsMenuOpen(!isSettingsMenuOpen);
   };

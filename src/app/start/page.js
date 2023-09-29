@@ -7,7 +7,6 @@ import { supabase } from "../../../supabase";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-// import Notifications from "@/components/notifications/notifications";
 
 const Main = styled.div`
   background-color: white;
@@ -46,7 +45,6 @@ const NotificationsComponent = dynamic(
 );
 export default function Start() {
   const router = useRouter();
-  const [user, setUser] = useState("");
 
   useEffect(() => {
     const checkUserSession = async () => {

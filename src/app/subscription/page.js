@@ -152,13 +152,12 @@ const StreamingForm = () => {
 
     fetchUserData();
   }, []);
+
   //when the user submits the form
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const renewalDate = calculateRenewalDate(startDate, renewalFrequency);
-
-    console.log("Renew day:", renewalDate);
 
     const { error } = await supabase.from("Subscriptions").insert({
       subscription: selectedService,

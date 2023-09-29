@@ -7,9 +7,7 @@ import { supabase } from "../../../supabase";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-
 import SubscriptionCard from "@/components/subscriptionCard/SubscriptionCard";
-import { Dai_Banna_SIL } from "next/font/google";
 
 const Main = styled.div`
   background-color: white;
@@ -76,7 +74,7 @@ const InnerImage = styled.img`
 const NotificationsComponent = dynamic(
   () => import("@/components/notificationsComponent/NotificationsComponent"),
   {
-    ssr: false, // Make sure to render component client side to access window and Notification APIs
+    ssr: false,
   }
 );
 
@@ -86,6 +84,7 @@ function Overview() {
   const [user, setUser] = useState("");
   const [totalCost, setTotalCost] = useState(0);
 
+  //if the user is not authenticated, redirect to login
   useEffect(() => {
     const checkUserSession = async () => {
       const session = supabase.auth.getSession();
@@ -98,6 +97,7 @@ function Overview() {
     checkUserSession();
   }, [router]);
 
+  //fetch subscriptions from the database from the user
   useEffect(() => {
     const fetchSubscriptions = async () => {
       const {
