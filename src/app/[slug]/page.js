@@ -126,6 +126,10 @@ const Slug = (id) => {
   const router = useRouter();
   const [subscription, setSubscription] = useState(null);
   const [subscriptionId, setSubscriptionId] = useState(null);
+  const [updatedSubscription, setUpdatedSubscription] = useState({
+    cost: "",
+    renewal: "",
+  });
   useEffect(() => {
     const setId = async () => {
       const data = id.params.slug;
@@ -168,6 +172,26 @@ const Slug = (id) => {
     fetchSubscription();
   }, [subscriptionId]);
   console.log(subscription);
+
+  //function to update the price of the subscription
+  const updateSubscription = async () => {
+    try {
+      const { error } = await supabase
+        .from("Subscriptions")
+        .update({
+          monthly_cost: updatedSubscription.cost,
+        })
+        .eq("id", subscriptionId);
+
+      if (error) {
+        console.error("Error updating subscription:", error);
+      } else {
+        console.log("Subscription updated successfully");
+      }
+    } catch (error) {
+      console.error("Error updating subscription:", error);
+    }
+  };
 
   //delete a single subscription from your account
   const deleteSubscription = async () => {
@@ -220,18 +244,30 @@ const Slug = (id) => {
             <div>
               <UpdateInputField>
                 <p>Kostnad</p>
-                <input placeholder="Lägg till kostnad" className="left" />
+                <input
+                  placeholder="Lägg till kostnad"
+                  className="left"
+                  value={updatedSubscription.cost}
+                  onChange={(e) =>
+                    setUpdatedSubscription({
+                      ...updatedSubscription,
+                      cost: e.target.value,
+                    })
+                  }
+                />
               </UpdateInputField>
               <UpdateInputField>
                 <p>Förnyas</p>
-                <input placeholder="Månadsvis" className="right" />
+                <input placeholder="Månadsvis" className="right"></input>
               </UpdateInputField>
             </div>
             <div>
               <CheckboxInput type="checkbox" />
               <p>Gratisperiod?</p>
             </div>
-            <button>Spara ändringar</button>
+            <Link href="/overview">
+              <button onClick={updateSubscription}>Spara ändringar</button>
+            </Link>
           </UpdateInfo>
 
           <Link href="/overview">
