@@ -10,10 +10,11 @@ const Main = styled.div`
 `;
 
 const Section = styled.section`
-  min-height: 100vh;
+  height: 100vh;
   padding: 16px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 
   h3 {
     margin-bottom: 10px;
