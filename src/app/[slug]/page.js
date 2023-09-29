@@ -175,32 +175,31 @@ const Slug = (id) => {
 
   //function to update the price of the subscription
   const updateSubscription = async () => {
-    try {
-      const { error } = await supabase
-        .from("Subscriptions")
-        .update({
-          monthly_cost: updatedSubscription.cost,
-        })
-        .eq("id", subscriptionId);
+    const { error } = await supabase
+      .from("Subscriptions")
+      .update({
+        monthly_cost: updatedSubscription.cost,
+      })
+      .eq("id", subscriptionId);
 
-      if (error) {
-        console.error("Error updating subscription:", error);
-      } else {
-        console.log("Subscription updated successfully");
-      }
-    } catch (error) {
+    if (error) {
       console.error("Error updating subscription:", error);
+    } else {
+      console.log("Subscription updated successfully");
     }
   };
 
   //delete a single subscription from your account
   const deleteSubscription = async () => {
-    try {
-      await supabase.from("Subscriptions").delete().eq("id", subscriptionId);
+    const { error } = await supabase
+      .from("Subscriptions")
+      .delete()
+      .eq("id", subscriptionId);
 
-      router.push("/overview");
-    } catch (error) {
+    if (error) {
       console.error("Error deleting subscription:", error);
+    } else {
+      router.push("/overview");
     }
   };
 
