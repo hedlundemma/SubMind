@@ -6,23 +6,23 @@ import styled from "styled-components";
 
 const Main = styled.div`
   background-color: white;
-  .img{
+  .img {
     background-repeat: no-repeat;
     background-position: center;
     background-color: black;
     padding-bottom: 64px;
   }
-  .heroOne{
+  .heroOne {
     background-image: url("images/heroOne.png");
     height: 600px;
     display: flex;
     align-items: center;
   }
-  .heroTwo{
+  .heroTwo {
     background-image: url("images/heroTwo.png");
     height: 440px;
   }
-  .heroThree{
+  .heroThree {
     background-image: url("images/heroThree.png");
     height: 440px;
   }
@@ -60,10 +60,10 @@ export default function Home() {
 
       <Section className="heroOne img">
         <InfoText>Ta kontroll över dina prenumerationer med Submind</InfoText>
-          <RegisterBtn href="/register">Kom igång! - Det är gratis</RegisterBtn>
+        <RegisterBtn href="/register">Kom igång! - Det är gratis</RegisterBtn>
       </Section>
       <Section className="heroTwo img">
-        <InfoText>Bli påmmind om när dina gratisperioder löper ut!</InfoText>
+        <InfoText>Bli påmind om när dina gratisperioder löper ut!</InfoText>
       </Section>
       <Section className="heroThree img">
         <InfoText>Få en överblick av din totala kostnad</InfoText>
