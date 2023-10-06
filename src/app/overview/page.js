@@ -83,6 +83,8 @@ function Overview() {
   const [subscriptions, setSubscriptions] = useState("");
   const [user, setUser] = useState("");
   const [totalCost, setTotalCost] = useState(0);
+  const [totalCostPerYear, setTotalCostPerYear] = useState(0);
+  const [totalCostPerMonth, setTotalCostPerMonth] = useState(0);
 
   //if the user is not authenticated, redirect to login
   useEffect(() => {
@@ -115,28 +117,37 @@ function Overview() {
   let cardsComponent = null;
 
   useEffect(() => {
-    // Ensure subscriptions is an array before processing
     if (Array.isArray(subscriptions)) {
-      // Initialize a variable to store the total cost
-      let calculatedTotalCost = 0;
+      let totalMonthlyCost = 0;
+      let totalYearlyCost = 0;
 
-      // Loop through the subscriptions and calculate the total cost
       subscriptions.forEach((subscription) => {
-        calculatedTotalCost += subscription.monthly_cost;
+        if (subscription.yearly_cost) {
+          totalYearlyCost += subscription.yearly_cost;
+        } else {
+          totalMonthlyCost += subscription.monthly_cost;
+        }
       });
 
-      // Update the state with the calculated total cost
-      setTotalCost(calculatedTotalCost);
+      const totalCostPerYear = Math.ceil(totalYearlyCost);
+      const totalCostPerMonth = Math.ceil(totalMonthlyCost);
+
+      setTotalCostPerYear(totalCostPerYear);
+      setTotalCostPerMonth(totalCostPerMonth);
     }
   }, [subscriptions]);
-
   if (Array.isArray(subscriptions)) {
     cardsComponent = subscriptions.map((subscription) => (
       <SubscriptionCard
         key={subscription.id}
         id={subscription.id}
-        cost={subscription.monthly_cost}
+        cost={
+          subscription.yearly_cost
+            ? subscription.yearly_cost
+            : subscription.monthly_cost
+        }
         name={subscription.subscription}
+        renewalFrequency={subscription.yearly_cost ? "year" : "month"}
       />
     ));
   }
@@ -151,8 +162,10 @@ function Overview() {
         </OuterDiv>
 
         <InfoSection>
+          <p>Totalkostnad för år:</p>
+          <h3>{totalCostPerYear} SEK</h3>
           <p>Totalkostnad för månad:</p>
-          <h3>{totalCost} Sek</h3>
+          <h3>{totalCostPerMonth} SEK</h3>
         </InfoSection>
         <ButtonDiv>
           <SubscriptionButton

@@ -116,7 +116,6 @@ const StreamingForm = () => {
       renewalDate.setFullYear(renewalDate.getFullYear() + 1);
     }
 
-    // Calculate the difference in milliseconds between the renewal date and the current date
     const timeDifference = renewalDate - currentDate;
 
     // Calculate the number of days left until renewal
@@ -156,16 +155,25 @@ const StreamingForm = () => {
   //when the user submits the form
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const renewalDate = calculateRenewalDate(startDate, renewalFrequency);
 
-    const { error } = await supabase.from("Subscriptions").insert({
+    const dataToInsert = {
       subscription: selectedService,
-      monthly_cost: cost,
       start_date: startDate,
       renew_date: renewalDate,
       user_uuid: user.id,
-    });
+    };
+
+    //choose what table in the database to insert into, based on the choosen value
+    if (renewalFrequency === "monthly") {
+      dataToInsert.monthly_cost = cost;
+    } else if (renewalFrequency === "yearly") {
+      dataToInsert.yearly_cost = cost;
+    }
+
+    const { error } = await supabase
+      .from("Subscriptions")
+      .insert([dataToInsert]);
   };
   return (
     <Main>

@@ -21,15 +21,14 @@ const Card = styled.button`
 `;
 
 const MainText = styled.p`
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
 `;
-
 const SubscriptionCard = (props) => {
   const router = useRouter();
   const [renewalDate, setRenewalDate] = useState(null);
 
-  //fetch the renew_date from the database to use to calculate days left of subscripton
+  //fetch the renew_date from the database to use to calculate days left of subscription
   useEffect(() => {
     const fetchRenewalDate = async () => {
       try {
@@ -57,15 +56,19 @@ const SubscriptionCard = (props) => {
     console.log("clicked");
   };
 
+  const displayCost =
+    props.renewalFrequency === "year"
+      ? props.cost + " Sek/Årligen"
+      : props.cost + " Sek/Månad";
+
   return (
     <Card onClick={handleButtonClick}>
       <div>
         <img src={`./logo/${props.name}.svg`} width="100px" />
       </div>
       <div>
-        <h3>Konstnad</h3>
-        <MainText>{props.cost} Sek</MainText>
-        <p>/Månad</p>
+        <h3>Kostnad</h3>
+        <MainText>{displayCost}</MainText>
       </div>
       <div>
         <h3>Förnyas om</h3>

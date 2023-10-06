@@ -203,6 +203,10 @@ const Slug = (id) => {
     }
   };
 
+  const yearlyCost =
+    subscription?.yearly_cost ||
+    (subscription?.monthly_cost ? subscription?.monthly_cost * 12 : "N/A");
+
   if (subscription && subscription.id) {
     return (
       <>
@@ -230,7 +234,7 @@ const Slug = (id) => {
               </div>
               <div>
                 <p>Årlig kostnad:</p>
-                <p>{subscription.monthly_cost * 12} Kr</p>
+                <p>{yearlyCost} Kr</p>
               </div>
             </Info>
             <div>
