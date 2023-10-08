@@ -152,6 +152,21 @@ function Overview() {
     ));
   }
 
+  function testButton(){
+    if(Notification.permission == "granted")
+    {
+      new Notification("test notification")
+      {
+        body: "this is a test"
+      }
+    }
+    else
+    {
+      Notification.requestPermission().then(perm => {
+      })
+    }
+  }
+
   if (subscriptions) {
     return (
       <Main>
@@ -160,7 +175,7 @@ function Overview() {
         <OuterDiv>
           <InnerImage src="/logo/Graph.svg" alt="Graph image" />
         </OuterDiv>
-
+        <button onClick={testButton}>test</button>
         <InfoSection>
           <p>Totalkostnad för år:</p>
           <h3>{totalCostPerYear} SEK</h3>
